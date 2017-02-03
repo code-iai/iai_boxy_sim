@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="iai_boxy_sim" type="odometry_simulation" name="odom_sim" >
+    <param name="sim_period" value="0.02"/>
+    <param name="watchdog_period" value="0.1"/>
+    <param name="odom_frame" value="odom"/>
+    <param name="base_frame" value="base_footprint"/>
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="localization_sim"
+        args="0 0 0 0 0 0 map odom 100" />
+</launch>
