@@ -30,4 +30,18 @@ In a second shell, enter:
 ```
 rviz                                       # start rviz
 ```
-In rviz, add a plugin of type ```RobotModel```, and select as ```Fixed_Frame``` the frame ```base_link```.
+In rviz, add a plugin of type ```RobotModel```, and select as ```Fixed_Frame``` the frame ```map```.
+
+### Move the base
+You can try the odometry simulation by sending commands from the shell:
+```
+rostopic pub /odom_sim/command geometry_msgs/Twist "linear:                                                        
+  x: 0.1
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.1" -r 20
+```
+This should translate and rotate the robot. The odometry simulation has a watchdog inside. So, just kill the publisher in the shell, and the robot should stop moving.
