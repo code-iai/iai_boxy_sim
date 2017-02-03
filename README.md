@@ -19,3 +19,15 @@ catkin build                               # build packages
 source ~/my_ws/devel/setup.bash            # source new overlay
 ```
 Note, the above instructions have been tested to also work under ```ROS Kinetic``` installed on ```Ubuntu 16.04```. Just replace any occurance of ```indigo``` with ```kinetic```.
+
+## Usage
+### Visualize simulated robot in RVIZ
+In a first shell, run:
+```
+roslaunch iai_boxy_sim boxy_sim.launch     # start simulation
+```
+In a second shell, enter:
+```
+rviz                                       # start rviz
+```
+In rviz, add a plugin of type ```RobotModel```, and select as ```Fixed_Frame``` the frame ```base_link```.
