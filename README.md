@@ -24,7 +24,7 @@ Note, the above instructions have been tested to also work under ```ROS Kinetic`
 ### Visualize simulated robot in RVIZ
 In a first shell, run:
 ```
-roslaunch iai_boxy_sim boxy_sim.launch     # start simulation
+roslaunch iai_boxy_sim boxy.launch     # start simulation
 ```
 In a second shell, enter:
 ```
