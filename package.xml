@@ -21,6 +21,10 @@
   <depend version_gte="0.4.0">ros_control_boilerplate</depend>
   <depend version_gte="0.9.3">joint_state_controller</depend>
   <depend version_gte="1.11.2">robot_state_publisher</depend>
+  <depend version_gte="0.9.4">controller_interface</depend>
+  <depend version_gte="0.9.4">hardware_interface</depend>
+  <depend version_gte="1.9.1">realtime_tools</depend>
+  <depend version_gte="1.10.4">pluginlib</depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
