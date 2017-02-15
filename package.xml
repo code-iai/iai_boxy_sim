@@ -18,7 +18,7 @@
   <depend version_gte="1.11.9">nav_msgs</depend>
   <depend version_gte="1.11.8">tf</depend>
   <depend>iai_boxy_description</depend>
-  <depend version_gte="0.3.1">ros_control_boilerplate</depend>
+  <depend version_gte="0.4.0">ros_control_boilerplate</depend>
   <depend version_gte="0.9.3">joint_state_controller</depend>
   <depend version_gte="1.11.2">robot_state_publisher</depend>
 
