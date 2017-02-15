@@ -6,3 +6,7 @@
     local-name: iai_boxy_sim
     uri: https://github.com/airballking/iai_boxy_sim.git
     version: master
+- git:
+    local-name: ros_control_boilerplate
+    uri: https://github.com/davetcoleman/ros_control_boilerplate.git
+    version: kinetic-devel
