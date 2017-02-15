@@ -10,3 +10,7 @@
     local-name: ros_control_boilerplate
     uri: https://github.com/davetcoleman/ros_control_boilerplate.git
     version: kinetic-devel
+- git:
+    local-name: giskard_msgs
+    uri: https://github.com/semroco/giskard_msgs.git
+    version: master
