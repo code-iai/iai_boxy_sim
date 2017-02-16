@@ -8,8 +8,8 @@
     version: master
 - git:
     local-name: ros_control_boilerplate
-    uri: https://github.com/davetcoleman/ros_control_boilerplate.git
-    version: kinetic-devel
+    uri: https://github.com/airballking/ros_control_boilerplate.git
+    version: fix-joint-limits-velocity-mode
 - git:
     local-name: giskard_msgs
     uri: https://github.com/semroco/giskard_msgs.git
