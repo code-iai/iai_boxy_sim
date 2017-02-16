@@ -7,7 +7,7 @@
   <node pkg="ros_control_boilerplate" type="sim_hw_main" name="boxy_sim" />
 
   <node pkg="controller_manager" type="spawner" name="controller_spawner"
-        args="joint_state_controller velocity_controllers" />
+        args="joint_state_controller velocity_controllers --shutdown-timeout 1" />
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" 
         name="robot_state_publisher" />

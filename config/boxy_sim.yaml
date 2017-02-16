@@ -36,7 +36,7 @@ joint_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 50
 velocity_controllers:
-  type: velocity_controllers/JointGroupVelocityController
+  type: iai_boxy_sim/FireHoseVelocityController
   joints:
     - odom_x_joint
     - odom_y_joint
@@ -62,4 +62,3 @@ velocity_controllers:
     - neck_wrist_2_joint
     - neck_wrist_3_joint
     - triangle_base_joint
-

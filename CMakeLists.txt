@@ -19,7 +19,7 @@ catkin_package()
 include_directories(include ${catkin_INCLUDE_DIRS})
 
 add_library(${PROJECT_NAME}
-  src/${PROJECT_NAME}/velocity_fire_hose_controller.cpp)
+  src/${PROJECT_NAME}/fire_hose_velocity_controller.cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
 add_executable(odometry_simulation src/${PROJECT_NAME}/odometry_simulation.cpp)
