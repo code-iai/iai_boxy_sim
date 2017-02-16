@@ -4,7 +4,7 @@
 
   <rosparam command="load" file="$(find iai_boxy_sim)/config/boxy_sim.yaml"/>
 
-  <node pkg="ros_control_boilerplate" type="sim_hw_main" name="boxy_sim" />
+  <node pkg="ros_control_boilerplate" type="sim_hw_main" name="boxy_sim" output="screen"/>
 
   <node pkg="controller_manager" type="spawner" name="controller_spawner"
         args="joint_state_controller velocity_controllers --shutdown-timeout 1" />

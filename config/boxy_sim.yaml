@@ -31,7 +31,7 @@ hardware_interface:
   sim_control_mode: 1
 generic_hw_control_loop:
   loop_hz: 50
-  cycle_time_error_threshold: 0.005
+  cycle_time_error_threshold: 0.03
 joint_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 50
