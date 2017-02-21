@@ -7,14 +7,6 @@
     uri: https://github.com/airballking/iai_boxy_sim.git
     version: master
 - git:
-    local-name: ros_control_boilerplate
-    uri: https://github.com/airballking/ros_control_boilerplate.git
-    version: fix-joint-limits-velocity-mode
-- git:
-    local-name: ros_control
-    uri: https://github.com/airballking/ros_control.git
-    version: fix-velocity-joint-saturate-interface
-- git:
-    local-name: giskard_msgs
-    uri: https://github.com/semroco/giskard_msgs.git
+    local-name: iai_naive_kinematics_sim
+    uri: https://github.com/code-iai/iai_naive_kinematics_sim.git
     version: master
