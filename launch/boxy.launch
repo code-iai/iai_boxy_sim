@@ -13,6 +13,7 @@
     <rosparam param="start_config" file="$(arg start_config_file)" />
     <param name="sim_frequency" value="$(arg sim_frequency)" />
     <param name="watchdog_period" value="0.1" />
+    <remap from="~joint_states" to="/joint_states" />
   </node>
 
   <node pkg="robot_state_publisher" type="robot_state_publisher"
