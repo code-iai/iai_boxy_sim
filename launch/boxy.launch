@@ -1,18 +1,11 @@
 <launch>
-  <arg name="sim_frequency" default="100" />
-
-  <arg name="start_config_file" 
-       default="$(find iai_boxy_sim)/config/start_config.yaml" />
 
   <include file="$(find iai_boxy_description)/launch/upload_boxy.launch" />
 
   <node pkg="iai_naive_kinematics_sim" type="simulator" 
         name="simulator" output="screen">
-    <rosparam param="controlled_joints"
-      file="$(find iai_boxy_sim)/config/controlled_joints.yaml" />
-    <rosparam param="start_config" file="$(arg start_config_file)" />
-    <param name="sim_frequency" value="$(arg sim_frequency)" />
-    <param name="watchdog_period" value="0.1" />
+    <rosparam command="load" 
+        file="$(find iai_boxy_sim)/config/sim_config.yaml" />
     <remap from="~joint_states" to="/joint_states" />
   </node>
 
