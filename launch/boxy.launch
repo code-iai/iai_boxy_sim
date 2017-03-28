@@ -1,18 +1,11 @@
 <launch>
-  <arg name="sim_frequency" default="100" />
-
-  <arg name="start_config_file" 
-       default="$(find iai_boxy_sim)/config/start_config.yaml" />
 
   <include file="$(find iai_boxy_description)/launch/upload_boxy.launch" />
 
   <node pkg="iai_naive_kinematics_sim" type="simulator" 
-        name="simulator" output="screen">
-    <rosparam param="controlled_joints"
-      file="$(find iai_boxy_sim)/config/controlled_joints.yaml" />
-    <rosparam param="start_config" file="$(arg start_config_file)" />
-    <param name="sim_frequency" value="$(arg sim_frequency)" />
-    <param name="watchdog_period" value="0.1" />
+        name="boxy" output="screen">
+    <rosparam command="load" 
+        file="$(find iai_boxy_sim)/config/sim_config.yaml" />
     <remap from="~joint_states" to="/joint_states" />
   </node>
 
@@ -21,7 +14,7 @@
 
   <node pkg="tf2_ros" type="buffer_server" name="tf2_buffer_server" />
 
-  <node pkg="tf" type="static_transform_publisher" name="fake_localization"
-        output="screen" args="0 0 0 0 0 0 map odom 100" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="fake_localization"
+        output="screen" args="0 0 0 0 0 0 map odom" />
 
 </launch>
