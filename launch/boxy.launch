@@ -3,7 +3,7 @@
   <include file="$(find iai_boxy_description)/launch/upload_boxy.launch" />
 
   <node pkg="iai_naive_kinematics_sim" type="simulator" 
-        name="simulator" output="screen">
+        name="boxy" output="screen">
     <rosparam command="load" 
         file="$(find iai_boxy_sim)/config/sim_config.yaml" />
     <remap from="~joint_states" to="/joint_states" />
@@ -14,7 +14,7 @@
 
   <node pkg="tf2_ros" type="buffer_server" name="tf2_buffer_server" />
 
-  <node pkg="tf" type="static_transform_publisher" name="fake_localization"
-        output="screen" args="0 0 0 0 0 0 map odom 100" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="fake_localization"
+        output="screen" args="0 0 0 0 0 0 map odom" />
 
 </launch>
