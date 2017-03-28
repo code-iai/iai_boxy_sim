@@ -24,6 +24,9 @@ simulated_joints:
   - neck_wrist_2_joint
   - neck_wrist_3_joint
 controlled_joints:
+  - odom_x_joint
+  - odom_y_joint
+  - odom_z_joint
   - left_arm_0_joint
   - left_arm_1_joint
   - left_arm_2_joint
@@ -40,6 +43,9 @@ controlled_joints:
   - right_arm_6_joint
   - triangle_base_joint
 start_config:
+  odom_x_joint: 0.1
+  odom_y_joint: 0.2
+  odom_z_joint: 0.3
   left_arm_0_joint: -1.5574374644003413
   left_arm_1_joint: 0.8407944290889994
   left_arm_2_joint: 0.09969375661946397
