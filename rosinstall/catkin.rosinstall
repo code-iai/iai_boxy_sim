@@ -4,7 +4,7 @@
     version: boxy_odom_joints
 - git:
     local-name: iai_boxy_sim
-    uri: https://github.com/airballking/iai_boxy_sim.git
+    uri: https://github.com/code-iai/iai_boxy_sim.git
     version: master
 - git:
     local-name: iai_naive_kinematics_sim
