@@ -19,6 +19,13 @@ source ~/my_ws/devel/setup.bash            # source new overlay
 ```
 Note, the above instructions have been tested to also work under ```ROS Kinetic``` installed on ```Ubuntu 16.04```. Just replace any occurance of ```indigo``` with ```kinetic```.
 
+## Design decisions
+There were some major design decisions that went into this simulator. Some of them diverge from typical ROS standards:
+* Model the odometry as 3 robots joints in the URDF. As a result, the odometry joints get published over the ```/joint_states``` topic, and the corresponding TF frames get published by the ```robot_state_publisher```. Rational: This treats base joints just like arm joints. KISS principle.
+* Have only one command topic for the entire robot (including odometry). The simulator (and the actual robot) will take care of delegating the respective sub-commands to the correct body parts or joints. As Alexis calls it: "Drinking from the fire hose." Rational: This ensures that whole-body command are sent together and arrive at the low-level controllers at the same time with the same time stamps.
+* Use ```sensor_msgs/JointState``` as message type for the command topic. Rational: Use readily available message definitions instead of defining custom messages. Again, KISS principle.
+* Allow sending of commands for only parts of the body. Rational: This speeds up conducting experiments with only parts of the robot.
+
 ## Usage
 ### Visualize simulated robot in RVIZ
 
@@ -34,16 +41,47 @@ rviz                                       # start rviz
 ```
 In rviz, add a plugin of type ```RobotModel```, and select as ```Fixed_Frame``` the frame ```map```.
 
-### Move the base
-You can try the odometry simulation by sending commands from the shell:
+### Moving the robot through the command topic
+There are two test bash-scripts that move parts of the robots. The scripts just publish command messages over the ```~command``` topic that the simulator subscribes to.
+
+
+Moving the arms:
+```shell
+rosrun iai_boxy_sim move_arms
 ```
-rostopic pub /odom_sim/command geometry_msgs/Twist "linear:                                                        
-  x: 0.1
-  y: 0.0
-  z: 0.0
-angular:
-  x: 0.0
-  y: 0.0
-  z: 0.1" -r 20
+
+Which does this:
+```shell
+rostopic pub /boxy/commands sensor_msgs/JointState "header:
+  seq: 0
+  stamp: {secs: 0, nsecs: 0}
+  frame_id: ''
+name: ['right_arm_4_joint', 'left_arm_0_joint', 'left_arm_1_joint']
+position: [0, 0, 0]
+velocity: [-0.1, -0.1, -0.1]
+effort: [0]" -r 100
 ```
-This should translate and rotate the robot. The odometry simulation has a watchdog inside. So, just kill the publisher in the shell, and the robot should stop moving.
+
+Moving the base:
+```shell
+rosrun iai_boxy_sim move_base
+```
+
+Which does this:
+```shell
+rostopic pub /boxy/commands sensor_msgs/JointState "header:
+  seq: 0
+  stamp: {secs: 0, nsecs: 0}
+  frame_id: ''
+name: ['odom_x_joint', 'odom_z_joint']
+position: [0, 0]
+velocity: [0.2, 0.1]
+effort: [0]" -r 100
+```
+As you can see, the simulator correctly moves the command joints using the name fields.
+
+Note: Even if you only want to send velocity commands, it is necessary to fill the position field with the appropriate amount of numbers. The efforts field is ignored.
+
+### Known limitations
+* Position commands are not support, yet. There are plans to support this.
+* Efforts are not simulated. This will not be supported in the future.
