@@ -10,11 +10,10 @@ cd ~/my_ws                                 # go to workspace directory
 catkin init                                # init workspace
 cd src                                     # go to source directory of workspace
 wstool init                                # init rosinstall
-wstool merge https://raw.githubusercontent.com/airballking/iai_boxy_sim/master/rosinstall/catkin.rosinstall
+wstool merge https://raw.githubusercontent.com/code-iai/iai_boxy_sim/master/rosinstall/catkin.rosinstall
                                            # update rosinstall file
 wstool update                              # pull source repositories
 rosdep install --ignore-src --from-paths . # install dependencies available through apt
-cd ..                                      # go to workspace directory
 catkin build                               # build packages
 source ~/my_ws/devel/setup.bash            # source new overlay
 ```
