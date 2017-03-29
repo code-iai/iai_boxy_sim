@@ -4,7 +4,7 @@ rostopic pub /boxy/commands sensor_msgs/JointState "header:
   seq: 0
   stamp: {secs: 0, nsecs: 0}
   frame_id: ''
-name: ['right_arm_4_joint', 'left_arm_0_joint', left_arm_1_joint']
+name: ['right_arm_4_joint', 'left_arm_0_joint', 'left_arm_1_joint']
 position: [0, 0, 0]
 velocity: [-0.1, -0.1, -0.1]
 effort: [0]" -r 100
