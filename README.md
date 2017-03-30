@@ -82,6 +82,28 @@ As you can see, the simulator correctly moves the command joints using the name 
 
 Note: Even if you only want to send velocity commands, it is necessary to fill the position field with the appropriate amount of numbers. The efforts field is ignored.
 
+### Setting the robot's joint state
+The simulator has a service interface to set the robot's joint state. This feature fascilitates automated testing.
+
+To illustrate, there is another bash script to test this feature:
+```shell
+rosrun iai_boxy_sim reset_sim
+```
+
+Which does this:
+```shell
+rosservice call /boxy/set_joint_states "state:
+  header:
+    seq: 0
+    stamp: {secs: 0, nsecs: 0}
+    frame_id: ''
+  name: ['odom_x_joint', 'odom_z_joint', 'right_arm_4_joint', 'left_arm_0_joint', 'left_arm_1_joint']
+  position: [0.1, 0.3, -1.3, -1.56, 0.84]
+  velocity: [0, 0, 0, 0, 0]
+  effort: [0]"
+```
+The robot should now be back at its initial position. As you can see, the service supports setting partial joint states.
+
 ## ROS Interface
 ![rviz view](https://raw.githubusercontent.com/code-iai/iai_boxy_sim/master/docs/boxy_sim.svg.png)
 
