@@ -26,7 +26,7 @@ There were some major design decisions that went into this simulator. Some of th
 * Use ```sensor_msgs/JointState``` as message type for the command topic. Rational: Use readily available message definitions instead of defining custom messages. Again, KISS principle.
 * Allow sending of commands for only parts of the body. Rational: This speeds up conducting experiments with only parts of the robot.
 
-## Usage
+## Tutorials
 ### Visualize simulated robot in RVIZ
 
 ![rviz view](https://raw.githubusercontent.com/code-iai/iai_boxy_sim/master/docs/boxy_sim_rviz.png)
@@ -82,6 +82,22 @@ As you can see, the simulator correctly moves the command joints using the name 
 
 Note: Even if you only want to send velocity commands, it is necessary to fill the position field with the appropriate amount of numbers. The efforts field is ignored.
 
-### Known limitations
+## ROS Interface
+![rviz view](https://raw.githubusercontent.com/code-iai/iai_boxy_sim/master/docs/boxy_sim.svg.png)
+
+### Subscribed topics
+* ```~commands``` (sensor_msgs/JointState): instantaneous motion commands to joints; currently only ```velocity``` field is used; fields ```name```, ```position```, ```velocity``` need to have lists of equal length; partial commands are supported
+
+### Published topics
+* ```~joint_states``` (sensor_msgs/JointState): complete joint state of the simulated robot
+
+### Offered Services
+* ```~set_joint_states``` (iai_naive_kinematics_sim/SetJointState): set next joint of the simulated robot; partial commands are supported
+
+### Parameters
+
+to be done.
+
+## Known limitations
 * Position commands are not support, yet. There are plans to support this.
 * Efforts are not simulated. This will not be supported in the future.
