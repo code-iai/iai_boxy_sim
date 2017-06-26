@@ -45,9 +45,9 @@ controlled_joints:
   - right_arm_6_joint
   - triangle_base_joint
 start_config:
-  odom_x_joint: 0.1
-  odom_y_joint: 0.2
-  odom_z_joint: 0.3
+  odom_x_joint: -2.5
+  odom_y_joint: 1.86
+  odom_z_joint: -0.07
   left_arm_0_joint: -1.5574374644003413
   left_arm_1_joint: 0.8407944290889994
   left_arm_2_joint: 0.09969375661946397
