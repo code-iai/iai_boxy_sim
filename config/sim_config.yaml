@@ -63,6 +63,12 @@ start_config:
   right_arm_5_joint: 1.85759378992942
   right_arm_6_joint: -1.0270237084541678
   triangle_base_joint: -0.31
+  neck_shoulder_pan_joint: -1.67144
+  neck_shoulder_lift_joint: -3.0928
+  neck_elbow_joint: -0.565377
+  neck_wrist_1_joint: 1.23036
+  neck_wrist_2_joint: 1.54493
+  neck_wrist_3_joint: 0.045060
 projection_mode: false
 sim_frequency: 100
 watchdog_period: 0.1
