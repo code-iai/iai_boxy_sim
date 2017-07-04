@@ -44,6 +44,8 @@ controlled_joints:
   - right_arm_5_joint
   - right_arm_6_joint
   - triangle_base_joint
+  - left_gripper_joint
+  - right_gripper_joint  
 start_config:
   odom_x_joint: -2.5
   odom_y_joint: 1.86
