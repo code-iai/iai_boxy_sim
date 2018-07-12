@@ -13,6 +13,6 @@
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
 
-  <!-- <include file="$(find iai_pr2_sim)/launch/fake_localization.launch" /> -->
+  <include file="$(find iai_pr2_sim)/launch/fake_localization.launch" />
 
 </launch>
