@@ -60,3 +60,5 @@ whole_body_controller:
   - neck_wrist_1_joint
   - neck_wrist_2_joint
   - neck_wrist_3_joint
+  - left_gripper_joint
+  - right_gripper_joint
