@@ -1,7 +1,7 @@
 - git:
     local-name: iai_robots
     uri: https://github.com/code-iai/iai_robots.git
-    version: boxy_odom_joints
+    version: master
 - git:
     local-name: iai_boxy_sim
     uri: https://github.com/code-iai/iai_boxy_sim.git
