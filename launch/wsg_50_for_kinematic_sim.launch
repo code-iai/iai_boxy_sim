@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="wsg_50_driver_left" pkg="iai_naive_kinematics_sim" type="wsg_50_faker.py" output="screen" >
+    <param name="gripper_joint_name" type="string" value="left_gripper_joint"/>
+    <remap from="/whole_body_controller/follow_joint_trajectory" to="whole_body_controller/left_gripper/follow_joint_trajectory"/>
+    <remap from="/whole_body_controller/state" to="/whole_body_controller/left_gripper/state"/>
+  </node>
+
+  <node name="wsg_50_driver_right" pkg="iai_naive_kinematics_sim" type="wsg_50_faker.py" output="screen" >
+    <param name="gripper_joint_name" type="string" value="right_gripper_joint"/>
+    <remap from="/whole_body_controller/follow_joint_trajectory" to="/whole_body_controller/right_gripper/follow_joint_trajectory"/>
+    <remap from="/whole_body_controller/state" to="/whole_body_controller/right_gripper/state"/>
+  </node>
+
+</launch>
