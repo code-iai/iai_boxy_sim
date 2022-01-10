@@ -2,7 +2,10 @@
   
   <include file="$(find iai_boxy_description)/launch/upload_boxy.launch" />
 
-  <node pkg="tf2_ros" type="static_transform_publisher" name="fake_localization" output="screen" args="0 0 0 0 0 0 map odom" />
+  <node pkg="iai_naive_kinematics_sim" type="map_odom_transform_publisher.py" name="map_odom_transform_publisher" output="screen">
+    <param name="parent_frame" value="map"/>
+    <param name="child_frame" value="odom"/>
+  </node>
 
   <rosparam command="load" file="$(find iai_boxy_sim)/config/ros_control_sim.yaml" />
 
